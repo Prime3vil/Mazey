@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="Theme.Mazey" parent="Theme.Material3.Dark.NoActionBar">
+        <item name="colorPrimary">@color/maze_accent</item>
+        <item name="colorOnPrimary">@color/maze_dark</item>
+        <item name="android:statusBarColor">@color/maze_dark</item>
+        <item name="android:navigationBarColor">@color/maze_dark</item>
+        <item name="android:windowBackground">@color/maze_dark</item>
+    </style>
+</resources>

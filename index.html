@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Mazey - Tactile Maze &amp; Arrow Puzzle Hub</title>
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="appContainer">
+        <!-- Main Game Canvas -->
+        <canvas id="gameCanvas"></canvas>
+
+        <!-- Confetti Particle Canvas -->
+        <canvas id="confettiCanvas"></canvas>
+
+        <!-- Top Header HUD -->
+        <header id="hudHeader">
+            <div class="hud-left">
+                <img src="icon.png" alt="Mazey Icon" class="app-icon" id="btnLogo">
+                <div class="app-brand">MAZEY</div>
+            </div>
+
+            <div class="hud-center">
+                <div id="hudModeName">The Turtle</div>
+                <div id="hudCombo">2x COMBO!</div>
+            </div>
+
+            <div class="hud-right">
+                <div class="stat-pill">
+                    <span id="hudStatLabel">REMAINING</span>
+                    <strong id="hudStatValue">18</strong>
+                </div>
+            </div>
+        </header>
+
+        <!-- Sandbox Specific Floating Bar -->
+        <div id="sandboxControls">
+            <button id="btnClearSandbox" class="btn-pill btn-outline">Clear</button>
+            <button id="btnGenerateCustom" class="btn-pill">✨ Generate Puzzle</button>
+        </div>
+
+        <!-- Floating Zoom Control Pill -->
+        <button id="btnResetZoom" class="zoom-pill" style="display: none;" title="Reset Zoom">
+            <span class="zoom-icon">🔍</span>
+            <span id="zoomLevelText">1.0x</span>
+            <span class="zoom-reset-badge">Fit</span>
+        </button>
+
+        <!-- Bottom Action Dock -->
+        <nav id="hudDock">
+            <button id="btnUndo" class="dock-btn" title="Undo Move">↩️</button>
+            <button id="btnHint" class="dock-btn" title="Hint">💡</button>
+            <button id="btnReset" class="dock-btn" title="Reset Level">🔄</button>
+            <button id="btnLevels" class="dock-btn" title="Select Shape">🗺️</button>
+            <button id="btnModes" class="dock-btn" title="Game Modes">🎮</button>
+            <button id="btnAudio" class="dock-btn" title="Audio Toggle">🔊</button>
+        </nav>
+
+        <!-- Mode Select Modal -->
+        <div id="modalModes" class="modal-overlay">
+            <div class="modal-sheet">
+                <div class="modal-header">
+                    <h3 class="modal-title">Select Maze Game Mode</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div class="mode-card" data-mode="arrow">
+                        <div class="mode-icon">🏹</div>
+                        <div class="mode-info">
+                            <h4>Arrow Escape</h4>
+                            <p>Untangle interlocking winding arrows in shaped silhouettes. The viral sensation!</p>
+                        </div>
+                    </div>
+
+                    <div class="mode-card" data-mode="sandbox">
+                        <div class="mode-icon">✨</div>
+                        <div class="mode-info">
+                            <h4>Shape Sandbox &amp; Builder</h4>
+                            <p>Draw your own custom silhouette and auto-generate solvable arrow puzzles!</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Level Select Modal (Arrow Escape Shapes) -->
+        <div id="modalLevels" class="modal-overlay">
+            <div class="modal-sheet">
+                <div class="modal-header">
+                    <h3 class="modal-title">Select Shaped Level</h3>
+                    <button class="modal-close">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <div id="levelsGrid" class="levels-grid">
+                        <!-- Populated dynamically by main.js -->
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Victory Modal -->
+        <div id="modalVictory" class="modal-overlay">
+            <div class="modal-sheet">
+                <div class="victory-content">
+                    <div class="victory-stars">⭐⭐⭐</div>
+                    <div class="victory-title">LEVEL SOLVED!</div>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">Flawless spatial deduction!</p>
+                    <div class="victory-actions">
+                        <button id="btnReplay" class="btn-pill btn-outline">Replay</button>
+                        <button id="btnNextLevel" class="btn-pill">Next Level ✨</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/audio.js"></script>
+    <script src="js/shapes.js"></script>
+    <script src="js/arrow_engine.js"></script>
+    <script src="js/sandbox_engine.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    
+    <!-- Mazey Isometric & Dark Palette -->
+    <color name="maze_dark">#0A0E17</color>
+    <color name="maze_surface">#131B2A</color>
+    <color name="maze_card">#1C273C</color>
+    <color name="maze_accent">#00E5FF</color>
+    <color name="maze_teal">#14B8A6</color>
+    <color name="maze_yellow">#FBBF24</color>
+    <color name="maze_orange">#F97316</color>
+    <color name="maze_coral">#EF4444</color>
+</resources>
