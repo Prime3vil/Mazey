@@ -18,3 +18,9 @@
 ## 4. Reticulum LoRa Mesh RF Guidelines
 * **TX Power Limit**: Both Jarvis Base Station and Prime3vil Mobile Node must maintain a strict 17 dBm TX power ceiling.
 * **Antenna Port**: Always route LoRa antennas to the Front IPEX port on Heltec WiFi LoRa 32 V4 hardware.
+
+## 5. Documentation & Release Fidelity (Zero Discrepancy Policy)
+* **Pre-Publish & Update Audit**: Whenever publishing an application, pushing documentation updates, or releasing a new version to GitHub, the agent MUST audit `README.md` against the active codebase (entrypoints, game modes, architecture layout, and real capabilities).
+* **Eliminate Phantom & Obsolete Features**: Never leave deprecated, refactored, or prototype features (such as removed game modes, deleted files, or obsolete flags) in `README.md` or release notes.
+* **Architecture Tree Parity**: Ensure file trees listed in documentation strictly match the actual files existing on disk.
+
