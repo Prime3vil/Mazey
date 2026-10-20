@@ -5,9 +5,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platforms](https://img.shields.io/badge/Platforms-Android%20%7C%20Linux%20%7C%20Windows%20%7C%20macOS%20%7C%20Web-blue.svg)](#supported-platforms)
 [![Tech Stack](https://img.shields.io/badge/Tech-Kotlin%20%7C%20Canvas%202D%20%7C%20WebAudio%20%7C%20Electron-orange.svg)](#architecture)
-[![Status](https://img.shields.io/badge/Release-v1.0.0-00e5ff.svg)](#installation--launch)
+[![Status](https://img.shields.io/badge/Release-v1.1.3--release-00e5ff.svg)](https://github.com/Prime3vil/Mazey/releases)
 
-*A minimalist, tactile puzzle suite modeled after the viral "Arrows GO!" path-untangling maze, featuring shaped silhouettes (including the iconic Turtle), 3D isometric labyrinths, torchlight fog-of-war mazes, paint roller flood puzzles, and a custom shape builder.*
+*A minimalist, tactile puzzle suite modeled after the viral "Arrows GO!" path-untangling maze, featuring handcrafted high-density silhouettes (including the iconic Turtle), procedural endless levels, and an interactive shape sandbox builder.*
 
 <br/>
 
@@ -21,47 +21,40 @@
 
 **Mazey** is designed as a meditative, deeply satisfying spatial reasoning game. Modeled after the viral arrow maze puzzle video, players deduce the correct dependency order to clear interlocking winding arrows from artistic silhouettes.
 
-Beyond the signature Arrow Escape mode, Mazey expands into a complete maze entertainment suite with **5 distinct game modes**, fluid 60/120 FPS canvas physics, and real-time procedural WebAudio sound synthesis with zero external audio latency.
+Mazey delivers high-density arrow untangling with fluid 60/120 FPS canvas physics, smooth touch/swipe navigation with multi-touch pinch-to-zoom, and real-time procedural WebAudio sound synthesis with zero external audio latency.
 
 ---
 
 ## ✨ Features & Game Modes
 
-### 1. 🏹 Arrow Escape (Core Video Mode)
-- **Topological Untangling**: Winding polyline paths weave together across dense discrete grids.
+### 1. 🏹 Arrow Escape (Core Mode)
+- **Topological Untangling**: Winding polyline paths weave together across dense discrete grids with up to 800+ arrows per silhouette.
 - **Escape Mechanics**:
   - Tapping an arrow raycasts its exit path along its pointing direction.
   - **Unblocked**: Slithers smoothly off the board with high-fps easing, an electric cyan trail, particle bursts, and ascending pentatonic chime streaks!
   - **Blocked**: Elastic collision bounce against the obstacle, glowing vibrant coral red (`#EF4444`), lateral shake animation, and tactile haptic thud.
 - **Revealed Grid**: As arrows exit, subtle ambient grid dots are unveiled on the dark AMOLED canvas.
 - **10 Handcrafted & Procedural Silhouettes**:
-  1. 🐢 **The Turtle** — Exact silhouette from the reference video!
+  1. 🐢 **The Turtle** — Exact iconic silhouette from the viral puzzle video!
   2. ❤️ **Sacred Heart**
-  3. 🐱 **Lucky Cat**
-  4. ⭐ **Super Star**
-  5. 👑 **Royal Crown**
-  6. 🐠 **Ocean Koi**
-  7. 🦋 **Monarch Wing**
+  3. 👑 **Royal Crown**
+  4. 🦋 **Monarch Wing**
+  5. 🐱 **Lucky Cat**
+  6. 💎 **Gem Diamond**
+  7. 🐠 **Ocean Koi**
   8. 💀 **Cyber Skull**
-  9. 💎 **Gem Diamond**
+  9. ⭐ **Super Star**
   10. ♾️ **Infinity Knot**
   11. 🎲 **Procedural Endless Mode** — Infinite guaranteed-solvable puzzles!
-- **Tactical Aids**: Built-in **Hint** (pulses an unblocked arrow with golden radiance) and **Undo** (steps back with reverse slide-in).
+- **Tactical Aids & Controls**:
+  - **Hint**: Pulses an unblocked arrow with golden radiance.
+  - **Undo**: Steps back a move with reverse slide-in animation.
+  - **Zoom & Pan**: Multi-touch pinch-to-zoom and pan navigation with a dedicated **Fit-to-Screen** reset badge for navigating intricate, dense levels.
 
-### 2. 🏛️ 3D Isometric Labyrinth (Inspired by App Icon)
-- **Art Style Grounded in the App Icon**: Tiered 2.5D isometric blocks rendered in warm coral, orange, yellow, and deep teal with clean white top ridges.
-- **Physics**: Roll a glowing crystal marble through winding 3D corridors using swipe, touch drag, or arrow keys.
-- **Collectibles**: Gather spinning golden energy shards and reach the cyan vortex portal.
-
-### 3. 🔦 Torch Run (Fog of War)
-- **Atmospheric Darkness**: Explore a pitch-black labyrinth with dynamic raycasted torchlight.
-- **Objective**: Find the hidden Golden Key to unlock the ancient portal before your torch fuel burns out. Collect scattered fire embers to replenish your flame!
-
-### 4. 🎨 Paint Roller (Color Flood)
-- **Fluid Splatters**: Swipe to glide the roller from wall to wall, splashing vibrant colors across the corridors until 100% of the maze is painted.
-
-### 5. ✨ Shape Sandbox & Level Builder
-- **Custom Puzzle Creator**: An interactive grid drawing tool where you can sketch any custom silhouette, click **Generate Puzzle**, and immediately solve your own custom creation!
+### 2. ✨ Shape Sandbox & Level Builder
+- **Custom Puzzle Creator**: An interactive grid drawing tool where you can sketch any custom silhouette directly on screen.
+- **Real-Time Solver**: Tapping **Generate Puzzle** converts your custom sketch into guaranteed-solvable interlocking arrow paths ready to play immediately!
+- **Instant Playback**: Seamlessly transitions from drawing mode into Arrow Escape gameplay.
 
 ---
 
@@ -80,81 +73,27 @@ Mazey contains a custom built-in synthesizer (`js/audio.js`) that produces all g
 
 ```
 Mazey/
-├── Mazey.apk                    # Standalone Android APK (5.3 MB)
+├── Mazey.apk                    # Standalone Android APK (API 34, Signed Release)
 ├── index.html                   # Playable web entrypoint
 ├── style.css                    # AMOLED dark theme & glassmorphism HUD
 ├── js/
 │   ├── audio.js                 # Procedural WebAudio synthesizer
 │   ├── shapes.js                # Silhouette masks (Turtle, Heart, Cat, etc.)
 │   ├── arrow_engine.js          # Core Arrow Escape engine & solver
-│   ├── isometric_engine.js      # 3D Isometric Labyrinth engine
-│   ├── torch_engine.js          # Fog of War Torch Run engine
-│   ├── paint_engine.js          # Paint Roller color-flood engine
 │   ├── sandbox_engine.js        # Custom shape builder & generator
 │   └── main.js                  # Main controller, HUD & confetti cannon
-├── app/                         # Android Native Wrapper (Kotlin, API 34)
+├── app/                         # Android Native Client (Kotlin, API 34)
 │   ├── src/main/java/           # MainActivity & AndroidBridge
 │   ├── src/main/assets/www/     # Bundled game engine
-│   └── src/main/res/            # Adaptive icons across all mipmap densities
+│   └── src/main/res/            # Adaptive launcher icons across densities
 ├── Linux app/                   # Linux Desktop Client (Electron)
 ├── Windows app/                 # Windows Desktop Client (Electron)
 ├── Mac app/                     # macOS Desktop Client (Electron)
 ├── scripts/
 │   └── process_icon.py          # Icon processor from user photo
-├── releases/
-│   └── Mazey-v1.0.0.apk         # Release package
+├── releases/                    # Pre-compiled cross-platform release packages
 └── run.sh                       # One-click launcher script
 ```
-
----
-
-## 🚀 Installation & Launch
-
-### 1. Web / Direct Browser
-Double-click `index.html` in your file browser or run:
-```bash
-./run.sh
-```
-
-### 2. Android Device / Emulator
-Install the compiled release APK:
-```bash
-adb install Mazey.apk
-```
-Or rebuild from source:
-```bash
-./gradlew assembleRelease
-```
-
-### 3. Linux Desktop (Fedora, Ubuntu, Arch)
-```bash
-./run.sh --desktop
-```
-Or manually:
-```bash
-cd "Linux app"
-npm install
-npm start
-```
-
-### 4. Windows Desktop
-```bash
-cd "Windows app"
-npm install
-npm start
-```
-
-### 5. macOS Desktop
-```bash
-cd "Mac app"
-npm install
-npm start
-```
-
----
-
-## 📄 License
-MIT License. Created for prime3vil.
 
 ---
 
@@ -164,7 +103,7 @@ Ready-to-use binaries are available under [Releases](https://github.com/Prime3vi
 
 | Platform | Package File | Architecture | Format |
 |---|---|---|---|
-| **Android** | `Mazey.apk` | Universal | Standalone Installable APK |
+| **Android** | `Mazey.apk` | Universal | Standalone Installable APK (v1.1.3) |
 | **Linux (x64)** | `Mazey-Linux-x64.zip` | x86_64 | Portable Standalone Binary |
 | **Windows (x64)** | `Mazey-Windows-x64.zip` | x86_64 | Portable `.zip` (`Mazey.exe`) |
 | **macOS (Apple Silicon)** | `Mazey-Mac-AppleSilicon-arm64.zip` | Apple Silicon (M1–M4) | Standalone `.app` bundle |
@@ -248,3 +187,29 @@ xattr -cr "/Applications/Mazey.app"
 open "/Applications/Mazey.app"
 ```
 
+---
+
+## 🛠️ Building & Running from Source
+
+### Web / Direct Browser
+Double-click `index.html` or run:
+```bash
+./run.sh
+```
+
+### Android Release APK
+```bash
+./gradlew assembleRelease
+```
+
+### Desktop Apps (Electron)
+```bash
+cd "Linux app"    # or "Windows app" / "Mac app"
+npm install
+npm start
+```
+
+---
+
+## 📄 License
+MIT License. Created for prime3vil.
